@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>YouTube Downloader</title>
+</head>
+<body>
+
+	<input type="text" id="video_name">
+
+	<button type="button" id="search">Search</button>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$('#search').on('click', function(){
+		var v_name = $('#video_name').val();
+		$.ajax({
+        type: 'GET',
+        url: "php-scripts/yt.php",
+        data:  {
+        	v_name : v_name
+    	},
+        success: function(response){
+	    	console.log(response);
+        },
+	})
+	})
+</script>
+
+
+</body>
+</html>
